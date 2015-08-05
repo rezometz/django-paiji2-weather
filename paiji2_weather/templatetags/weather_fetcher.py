@@ -1,10 +1,12 @@
-import urllib
-import django.utils.simplejson as json
+import urllib2
+import socket
 from datetime import date
 
+import django.utils.simplejson as json
 
 class WeatherFetcher(object):
     """fetch Weather information from openweathermap API"""
+
     def __init__(self, lang, format, city):
         super(WeatherFetcher, self).__init__()
         self.lang = lang
@@ -35,7 +37,12 @@ class WeatherFetcher(object):
         }
 
     def fetchJson(self, url):
-        return json.loads(urllib.urlopen(url).read())
+        try:
+            data = urllib2.urlopen(url, timeout=2).read()
+        except socket.timeout:
+            print "Weather: socket timeout"
+
+        return json.loads(data)
 
     def fetchWeather(self):
         try:
