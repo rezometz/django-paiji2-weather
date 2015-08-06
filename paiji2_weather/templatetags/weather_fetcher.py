@@ -4,6 +4,7 @@ from datetime import date
 
 import django.utils.simplejson as json
 
+
 class WeatherFetcher(object):
     """fetch Weather information from openweathermap API"""
 
@@ -63,8 +64,10 @@ class WeatherFetcher(object):
         ]
         description = current_description + forcast_description
 
-        icons = [self.icon_mapper[w['weather'][0]['icon'][:2]]
-                for x in forcast['list']]
+        icons = [
+            self.icon_mapper[w['weather'][0]['icon'][:2]]
+            for x in forcast['list']
+        ]
 
         for x in xrange(4):
             list_weather.append({
