@@ -2,7 +2,10 @@ import urllib2
 import socket
 from datetime import date
 
-import django.utils.simplejson as json
+try:
+    import django.utils.simplejson as json
+except:
+    import simplejson as json
 
 
 class WeatherFetcher(object):
