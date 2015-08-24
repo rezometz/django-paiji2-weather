@@ -17,6 +17,9 @@ setup(
     url='https://github.com/rezometz/django-paiji2-weather',
     author='Supelec Rezo Metz',
     author_email='paiji-dev@rezometz.org',
+    install_requires=[
+        'simplejson'
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
