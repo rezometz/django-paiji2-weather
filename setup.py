@@ -18,7 +18,7 @@ setup(
     author='Supelec Rezo Metz',
     author_email='paiji-dev@rezometz.org',
     install_requires=[
-        'simplejson'
+        'simplejson>=3',
     ],
     classifiers=[
         'Environment :: Web Environment',
