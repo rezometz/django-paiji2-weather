@@ -1,8 +1,8 @@
 import urllib2
 import socket
+import json
 from datetime import date
 
-import django.utils.simplejson as json
 
 
 class WeatherFetcher(object):
