@@ -11,7 +11,7 @@
         <p class="current-temp">
             {{ weather.list_weather.0.current|floatformat }} &deg;C 
             <span class="weather-description">
-                {{ weather.list_weather.0.desc }}</ br>
+                {{ weather.list_weather.0.desc }}</br>
                 {{ weather.list_weather.0.min|floatformat }}
                 - {{ weather.list_weather.0.max|floatformat }} &deg;C
             </span>
@@ -25,9 +25,9 @@
     {% for item in weather.list_weather|slice:"1:" %}
     <div class="col-sm-4">
         <p>
-            <i class="weather wi wi-{{ item.icon }}"></i></ br>
+            <i class="weather wi wi-{{ item.icon }}"></i></br>
 
-            {{ item.timestamp|date:'D' }}.</ br>
+            {{ item.timestamp|date:'D' }}.</br>
             {{ item.min|floatformat }} - {{ item.max|floatformat }}&deg;C
         </p>
     </div>
