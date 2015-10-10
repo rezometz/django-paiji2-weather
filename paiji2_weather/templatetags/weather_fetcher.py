@@ -2,6 +2,10 @@ import urllib2
 import socket
 import json
 from datetime import date
+from django.conf import settings
+
+
+API_KEY = settings.OPENWEATHERMAP_API_KEY
 
 
 class WeatherFetcher(object):
@@ -16,11 +20,24 @@ class WeatherFetcher(object):
         self.currentWeatherUrl = (
             "http://api.openweathermap.org/data/2.5/weather"
             "?q={city}&mode={mode}&lang={lang}&units=metric&type=like"
-        ).format(city=self.city, mode=self.format, lang=self.lang)
+            "&APPID={api_key}"
+        ).format(
+            city=self.city,
+            mode=self.format,
+            lang=self.lang,
+            api_key=API_KEY,
+        )
+
         self.forcastWeatherUrl = (
             "http://api.openweathermap.org/data/2.5/forecast/daily"
             "?q={city}&mode={mode}&lang={lang}&units=metric&cnt=4&type=like"
-        ).format(city=self.city, mode=self.format, lang=self.lang)
+            "&APPID={api_key}"
+        ).format(
+            city=self.city,
+            mode=self.format,
+            lang=self.lang,
+            api_key=API_KEY,
+        )
 
         # FIXME : The mapper should explains to which
         # weather corresponds each letter
