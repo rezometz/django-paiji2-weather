@@ -5,7 +5,11 @@ from datetime import date
 from django.conf import settings
 
 
-API_KEY = settings.OPENWEATHERMAP_API_KEY
+try:
+    API_KEY = settings.OPENWEATHERMAP_API_KEY
+except Exception as e:
+    print(e)
+    API_KEY = ''
 
 
 class WeatherFetcher(object):
